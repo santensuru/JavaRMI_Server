@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package javarmi_server;
+import java.rmi.*;
+import java.rmi.registry.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,6 +20,14 @@ public class JavaRMI_Server {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        imageInterfaces stub;
+        try {
+            stub = new imageClass();
+            Naming.rebind("rmi://10.151.12.201:5000/image", stub);
+        } catch (Exception ex) {
+            Logger.getLogger(JavaRMI_Server.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
     
 }
