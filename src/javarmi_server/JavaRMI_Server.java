@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package javarmi_server;
+import java.net.MalformedURLException;
 import java.rmi.*;
-import java.rmi.registry.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -24,7 +24,7 @@ public class JavaRMI_Server {
         try {
             stub = new imageClass();
             Naming.rebind("rmi://10.151.12.201:5000/image", stub);
-        } catch (Exception ex) {
+        } catch (RemoteException | MalformedURLException ex) {
             Logger.getLogger(JavaRMI_Server.class.getName()).log(Level.SEVERE, null, ex);
         }
         
