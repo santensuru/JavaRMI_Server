@@ -1,9 +1,11 @@
+package javarmi_server;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javarmi_server;
+
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.rmi.*;
@@ -13,9 +15,9 @@ import java.rmi.server.*;
  *
  * @author AdminMobility
  */
-public class imageClass extends UnicastRemoteObject implements imageInterfaces {
+public class Image extends UnicastRemoteObject implements ImageInterface {
 
-    imageClass()throws RemoteException {
+    Image()throws RemoteException {
         super();
     }
     @Override

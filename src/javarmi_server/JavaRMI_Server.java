@@ -20,9 +20,9 @@ public class JavaRMI_Server {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        imageInterfaces stub;
+        ImageInterface stub;
         try {
-            stub = new imageClass();
+            stub = new Image();
             Naming.rebind("rmi://10.151.12.201:5000/image", stub);
         } catch (RemoteException | MalformedURLException ex) {
             Logger.getLogger(JavaRMI_Server.class.getName()).log(Level.SEVERE, null, ex);
