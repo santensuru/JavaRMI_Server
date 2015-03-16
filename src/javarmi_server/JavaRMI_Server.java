@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 package javarmi_server;
-import java.net.MalformedURLException;
+import imagermi.Image;
 import java.rmi.*;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,11 +22,16 @@ public class JavaRMI_Server {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        ImageInterface stub;
+        
         try {
-            stub = new Image();
-            Naming.rebind("rmi://10.151.12.201:5000/image", stub);
-        } catch (RemoteException | MalformedURLException ex) {
+            
+            Image stub = new Image();
+            //Image stub = (Image) UnicastRemoteObject.exportObject(robj, 0);
+            Registry reg = LocateRegistry.createRegistry(1099);
+            reg.rebind("toBW", stub);
+            System.out.println("Server run ...");
+            
+        } catch (RemoteException ex) {
             Logger.getLogger(JavaRMI_Server.class.getName()).log(Level.SEVERE, null, ex);
         }
         
