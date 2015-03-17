@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package javarmi_server;
-import imagermi.Image;
 import java.rmi.*;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
