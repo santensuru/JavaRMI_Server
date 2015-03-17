@@ -29,7 +29,8 @@ public class Image extends UnicastRemoteObject implements ImageInterface {
         for (y=startY; y<h; y++) {
             for (x=startX; x<w; x++) {
                 Color c = new Color(rgbArray[x + scansize*y]);
-                output[x + scansize*y] = (int)(c.getRed() * 0.299 + c.getGreen() * 0.587 + c.getBlue() * 0.114);
+                int temp = (int)(c.getRed() * 0.299 + c.getGreen() * 0.587 + c.getBlue() * 0.114);
+                output[x + scansize*y] = temp << 16 | temp << 8 | temp;
             }
         }
         
